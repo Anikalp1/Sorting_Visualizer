@@ -61,6 +61,9 @@ function play() {
     } else if (algorithm === "selection") {
         moves = selectionSort(array);
     }
+    else if (algorithm === "quick") {
+        moves = quickSort(array);
+    }
 }
 
 animate();
@@ -122,6 +125,49 @@ function selectionSort(array) {
     }
     return moves;
 }
+
+function quickSort(array) {
+    const moves = [];
+    quickSortHelper(array, 0, array.length - 1, moves);
+    return moves;
+}
+
+function quickSortHelper(array, start, end, moves) {
+    if (start < end) {
+        const pivotIndex = partition(array, start, end, moves);
+        quickSortHelper(array, start, pivotIndex - 1, moves);
+        quickSortHelper(array, pivotIndex + 1, end, moves);
+    }
+}
+
+function partition(array, start, end, moves) {
+    const pivotValue = array[end];
+    let pivotIndex = start;
+
+    for (let i = start; i < end; i++) {
+        if (array[i] < pivotValue) {
+            if (i !== pivotIndex) {
+                [array[i], array[pivotIndex]] = [array[pivotIndex], array[i]];
+                moves.push({ indices: [i, pivotIndex], swap: true });
+            } else {
+                moves.push({ indices: [i, pivotIndex], swap: false });
+            }
+            pivotIndex++;
+        } else {
+            moves.push({ indices: [i, pivotIndex], swap: false });
+        }
+    }
+
+    if (pivotIndex !== end) {
+        [array[pivotIndex], array[end]] = [array[end], array[pivotIndex]];
+        moves.push({ indices: [pivotIndex, end], swap: true });
+    } else {
+        moves.push({ indices: [pivotIndex, end], swap: false });
+    }
+
+    return pivotIndex;
+}
+
 
 
 function animate() {
