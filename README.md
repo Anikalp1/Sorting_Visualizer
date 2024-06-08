@@ -1,7 +1,7 @@
 
 # Sorting Visualizer
 
-Sorting Visualizer is a web application that helps users visualize and understand various sorting algorithms. It represents the following sorting algorithms: Bubble Sort, Insertion Sort, Selection Sort, Quick Sort, and Heap Sort. The visualizer provides an interactive and educational experience to see how different algorithms sort an array of numbers.
+Sorting Visualizer is a web application that helps users visualize and understand various sorting algorithms. It represents the following sorting algorithms: Bubble Sort, Insertion Sort, Selection Sort, Quick Sort, and Heap Sort. The visualizer provides an interactive and educational experience to see how different algorithms sort an array.
 
 
 ## Table and Contents
@@ -62,5 +62,5 @@ Contributions are what make the open-source community such an amazing place to l
 
 ## 🔗 Links
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://anikalp-portfolio.vercel.app/)
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anikalp-jaiswal/)
 
