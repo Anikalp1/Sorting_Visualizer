@@ -64,6 +64,9 @@ function play() {
     else if (algorithm === "quick") {
         moves = quickSort(array);
     }
+    else if (algorithm === "heap") {
+        moves = heapSort(array);
+    }
 }
 
 animate();
@@ -168,6 +171,55 @@ function partition(array, start, end, moves) {
     return pivotIndex;
 }
 
+function heapSort(array) {
+    const moves = [];
+    buildMaxHeap(array, moves);
+    
+    for (let end = array.length - 1; end > 0; end--) {
+        // Swap the root of the heap with the last element
+        [array[0], array[end]] = [array[end], array[0]];
+        moves.push({ indices: [0, end], swap: true });
+        
+        // Re-heapify the reduced heap
+        siftDown(array, 0, end - 1, moves);
+    }
+    
+    return moves;
+}
+
+function buildMaxHeap(array, moves) {
+    const start = Math.floor(array.length / 2) - 1;
+    
+    for (let i = start; i >= 0; i--) {
+        siftDown(array, i, array.length - 1, moves);
+    }
+}
+
+function siftDown(array, start, end, moves) {
+    let root = start;
+    
+    while ((root * 2 + 1) <= end) {
+        let child = root * 2 + 1;
+        let swap = root;
+        
+        if (array[swap] < array[child]) {
+            swap = child;
+        }
+        
+        if (child + 1 <= end && array[swap] < array[child + 1]) {
+            swap = child + 1;
+        }
+        
+        if (swap === root) {
+            moves.push({ indices: [root, child], swap: false });
+            return;
+        } else {
+            [array[root], array[swap]] = [array[swap], array[root]];
+            moves.push({ indices: [root, swap], swap: true });
+            root = swap;
+        }
+    }
+}
 
 
 function animate() {
