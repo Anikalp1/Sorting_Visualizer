@@ -13,11 +13,21 @@ class Column {
       const u = Math.sin(t * Math.PI);
       this.queue.push({
         x: lerp(this.x, loc.x, t),
-        y: lerp(this.y, loc.y, t) + (u * this.width) / 2 * yOffset,
+        y: lerp(this.y, loc.y, t) + ((u * this.width) / 2) * yOffset,
       });
     }
   }
 
+  jump(frameCount = 20) {
+    for (let i = 1; i < frameCount; i++) {
+      const t = i / frameCount;
+      const u = Math.sin(t * Math.PI);
+      this.queue.push({
+        x: this.x,
+        y: this.y - u * this.width,
+      });
+    }
+  }
   draw(ctx) {
     let changed = false;
     if (this.queue.length > 0) {
