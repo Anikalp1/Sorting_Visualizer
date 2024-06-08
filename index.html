@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Sorting Visualizer</title>
-    <link rel="icon" type="image/x-icon" href="styles/Favicon.png">
-    <link rel="stylesheet" href="styles/style.css"/>
-</head>
-<body>
+    <link rel="icon" type="image/x-icon" href="styles/Favicon.png" />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
     <h1>Sorting Visualizer</h1>
     <canvas id="myCanvas"></canvas>
-    <hr>
+    <hr />
     <div>
-        <button onclick="init()">Init</button>
-        <button onclick="play()">Play</button>
-        <select id="algorithm">
-            <option value="bubble">Bubble Sort</option>
-            <option value="insertion">Insertion Sort</option>
-            <option value="selection">Selection Sort</option>
-            <option value="quick">Quick Sort</option>
-            <option value="heap">Heap Sort</option>
-        </select>
+      <button onclick="init()">Init</button>
+      <button onclick="play()">Play</button>
+      <select id="algorithm">
+        <option value="bubble">Bubble Sort</option>
+        <option value="insertion">Insertion Sort</option>
+        <option value="selection">Selection Sort</option>
+        <option value="quick">Quick Sort</option>
+        <option value="heap">Heap Sort</option>
+      </select>
     </div>
     <script src="src/math.js"></script>
     <script src="src/column.js"></script>
     <script src="src/script.js"></script>
-</body>
+  </body>
 </html>
