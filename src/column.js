@@ -12,7 +12,7 @@ class Column{
       }
   }
 
-  moveTo(loc,yOffset=1,frameCount=5){
+  moveTo(loc,yOffset=1,frameCount=20){
       for(let i=1;i<=frameCount;i++){
           const t=i/frameCount;
           const u=Math.sin(t*Math.PI);
@@ -27,7 +27,7 @@ class Column{
       }
   }
 
-  jump(frameCount=5){
+  jump(frameCount=20){
       for(let i=1;i<=frameCount;i++){
           const t=i/frameCount;
           const u=Math.sin(t*Math.PI);
