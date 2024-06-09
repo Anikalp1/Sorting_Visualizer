@@ -12,7 +12,7 @@ init();
 let audioCtx = null;
 
 function playNote(freq, type) {
-  if (audioCtx == null) {
+	if (audioCtx == null) {
 		audioCtx = new (AudioContext ||
 			webkitAudioContext ||
 			window.webkitAudioContext)();
@@ -32,7 +32,7 @@ function playNote(freq, type) {
 }
 
 function init() {
-  for (let i = 0; i < n; i++) {
+	for (let i = 0; i < n; i++) {
 		array[i] = Math.random();
 	}
 	moves = [];
@@ -46,7 +46,7 @@ function init() {
 }
 
 function play() {
-  const algorithm = document.getElementById("algorithm").value;
+	const algorithm = document.getElementById("algorithm").value;
 	if (algorithm === "bubble") {
 		moves = bubbleSort(array);
 	} else if (algorithm === "insertion") {
@@ -65,7 +65,7 @@ function play() {
 animate();
 
 function bubbleSort(array) {
-  const moves = [];
+	const moves = [];
 	do {
 		var swapped = false;
 		for (let i = 1; i < array.length; i++) {
@@ -105,7 +105,7 @@ function isSorted(array) {
 }
 
 function insertionSort(array) {
-  const moves = [];
+	const moves = [];
 	for (let i = 1; i < array.length; i++) {
 		let j = i;
 		while (j > 0 && array[j - 1] > array[j]) {
@@ -118,7 +118,7 @@ function insertionSort(array) {
 }
 
 function selectionSort(array) {
-  const moves = [];
+	const moves = [];
 	for (let i = 0; i < array.length - 1; i++) {
 		let minIndex = i;
 		for (let j = i + 1; j < array.length; j++) {
@@ -136,13 +136,13 @@ function selectionSort(array) {
 }
 
 function quickSort(array) {
-  const moves = [];
+	const moves = [];
 	quickSortHelper(array, 0, array.length - 1, moves);
 	return moves;
 }
 
 function quickSortHelper(array, start, end, moves) {
-  if (start < end) {
+	if (start < end) {
 		const pivotIndex = partition(array, start, end, moves);
 		quickSortHelper(array, start, pivotIndex - 1, moves);
 		quickSortHelper(array, pivotIndex + 1, end, moves);
@@ -150,7 +150,7 @@ function quickSortHelper(array, start, end, moves) {
 }
 
 function partition(array, start, end, moves) {
-  const pivotValue = array[end];
+	const pivotValue = array[end];
 	let pivotIndex = start;
 
 	for (let i = start; i < end; i++) {
@@ -178,27 +178,31 @@ function partition(array, start, end, moves) {
 }
 
 function heapSort(array) {
-  const moves = [];
+	const moves = [];
 	buildMaxHeap(array, moves);
-  for (let end = array.length - 1; end > 0; end--) {
+
+	for (let end = array.length - 1; end > 0; end--) {
 		// Swap the root of the heap with the last element
 		[array[0], array[end]] = [array[end], array[0]];
 		moves.push({ indices: [0, end], swap: true });
-    // Re-heapify the reduced heap
+
+		// Re-heapify the reduced heap
 		siftDown(array, 0, end - 1, moves);
 	}
-return moves;
+
+	return moves;
 }
 
 function buildMaxHeap(array, moves) {
-  const start = Math.floor(array.length / 2) - 1;
-  for (let i = start; i >= 0; i--) {
+	const start = Math.floor(array.length / 2) - 1;
+
+	for (let i = start; i >= 0; i--) {
 		siftDown(array, i, array.length - 1, moves);
 	}
 }
 
 function siftDown(array, start, end, moves) {
-  let root = start;
+	let root = start;
 
 	while (root * 2 + 1 <= end) {
 		let child = root * 2 + 1;
@@ -224,7 +228,7 @@ function siftDown(array, start, end, moves) {
 }
 
 function animate() {
-  ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+	ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
 	let changed = false;
 	for (let i = 0; i < cols.length; i++) {
 		changed = cols[i].draw(ctx) || changed;
