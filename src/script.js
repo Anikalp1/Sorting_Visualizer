@@ -47,18 +47,27 @@ function init() {
 
 function play() {
 	const algorithm = document.getElementById("algorithm").value;
-	if (algorithm === "bubble") {
-		moves = bubbleSort(array);
-	} else if (algorithm === "insertion") {
-		moves = insertionSort(array);
-	} else if (algorithm === "selection") {
-		moves = selectionSort(array);
-	} else if (algorithm === "quick") {
-		moves = quickSort(array);
-	} else if (algorithm === "heap") {
-		moves = heapSort(array);
-	} else if (algorithm === "bogo") {
-		moves = bogoSort(array);
+	switch (algorithm) {
+		case "bubble":
+			moves = bubbleSort(array);
+			break;
+		case "insertion":
+			moves = insertionSort(array);
+			break;
+		case "selection":
+			moves = selectionSort(array);
+			break;
+		case "quick":
+			moves = quickSort(array);
+			break;
+		case "heap":
+			moves = heapSort(array);
+			break;
+		case "bogo":
+			moves = bogoSort(array);
+			break;
+		default:
+			console.log("Invalid algorithm selected");
 	}
 }
 
