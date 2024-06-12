@@ -31,6 +31,12 @@ function playNote(freq, type) {
 	node.connect(audioCtx.destination);
 }
 
+function updateSpeed() {
+	const speed = document.getElementById("speed").value;
+	const speedText = document.getElementById("speedvalue");
+	speedText.innerHTML = `${speed}x`;
+}
+
 function init() {
 	for (let i = 0; i < n; i++) {
 		array[i] = Math.random();
