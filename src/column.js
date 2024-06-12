@@ -31,8 +31,9 @@ class Column {
 
 	jump(frameCount = 20) {
 		speed = document.getElementById("speed").value;
-		for (let i = 1; i * speed <= frameCount; i++) {
-			const t = (i / frameCount) * speed;
+		const maxIterations = Math.max(speed, frameCount);
+		for (let i = 1; i <= maxIterations; i++) {
+			const t = i / maxIterations;
 			const u = Math.sin(t * Math.PI);
 			this.queue.push({
 				x: this.x,
@@ -43,7 +44,6 @@ class Column {
 			});
 		}
 	}
-
 	draw(ctx) {
 		let changed = false;
 		if (this.queue.length > 0) {
